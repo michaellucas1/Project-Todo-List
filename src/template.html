@@ -3,9 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Page</title>
+    <title>Project Todo list</title>
 </head>
 <body>
+    
+    <div class="content-wrapper">
+        <!--header is flex column-->
+        <header>
+            <h1>Todo List</h1>
+            <!--user-container class is flex row-->
+            <div class="user-container">
+                <div class="profile-picture">Profile</div>
+                <div class="username">Name</div>
+                <div class="notification-button">Notification</div>
+            </div>
+    
+        </header>
+        <!--main is grid, left is 1fr and right is 3fr-->
+        <main>
+            <!--nav is flex column-->
+            <nav>
+                <!-- task-control is flex column-->
+                <div class="project-control">
+                    <div class="control-items">
+                        <div class="icon add-task-icon"></div>
+                        <button>Add Project</button>
+                    </div>
+                    <div class="control-items">
+                        <div class="icon search-icon"></div>
+                        <button>Search</button>
+                    </div>
+                    <div class="control-items">
+                        <div class="icon today-icon"></div>
+                        <button>Today</button>
+                    </div>
+                    <div class="control-items">
+                        <div class="icon upcoming-icon"></div>
+                        <button>Upcoming</button>
+                    </div>
+                    <div class="control-items">
+                        <div class="icon complete-icon"></div>
+                        <button>Completed</button>
+                    </div>
+                </div>
+                <!-- project-nav is flex column-->
+                <div class="project-nav">
+                    <div>My project One</div>
+                    <div class="task-icon-container">
+                        <div class="icon task-icon"></div>
+                        <p>task one</p>
+                    </div>
+                </div>
+                <div class="project-nav">
+                    <div>My project Two</div>
+                    <div class="task-icon-container">
+                        <div class="icon task-icon"></div>
+                        <p>task one</p>
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                <h2>Today</h2>
+                <!-- todo list -container is a grid-->
+                 <div class="project-list-container">
+                    <div class="project-item-container">
+                        <!-- todo-list-item is a flex row-->
+                         <h3>Project 1</h3>
+                         <div class="todo-list-wrapper">
+                            <div class="todo-list-item">
+                                <span><input type="checkbox">Do 30 minutes </span>
+                                <span><input type="checkbox">Dentist appoointment</span>
+                                
+                            </div>
+                         </div>
+                    </div>
+                    <!--
+                    <div class="project-item-container">
+                        <h1>Project 2</h1>
+                        <div class="todo-list-wrapper">
+                            <div class="todo-list-item">
+                                <input type="radio">
+                                <div>Do 30 minutes </div>
+                                <input type="radio">
+                                <div>dentist appoointment</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    -->
+                    
+                </div>                
+            </div>
+        </main>
+    </div>
     
 </body>
 </html>
