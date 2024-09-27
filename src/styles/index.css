@@ -1,0 +1,133 @@
+body{
+    background-color:black;
+}
+header,
+.user-container,
+nav,
+.todo-list-item,
+.task-control,
+.project-nav,
+.project-control,
+.control-items,
+.task-icon-container{
+    display:flex;
+}
+
+header,
+nav,
+.project-nav,
+.project-control,
+.todo-list-item,
+.project-item-container{
+    flex-direction:column;
+}
+main,
+.todo-list,
+.project-list-container{
+    display:grid;
+}
+
+.add-task-icon{
+    background-image: url("../resource/icons/add-task.svg");
+}
+.search-icon{
+    background-image: url("../resource/icons/search.svg");
+}
+.today-icon{
+    background-image: url("../resource/icons/calendar-today.svg");
+
+}
+.upcoming-icon{
+    background-image: url("../resource/icons/upcoming.svg");
+ 
+}
+.complete-icon{
+    background-image: url("../resource/icons/complete.svg");
+}
+.task-icon{
+    background-image: url("../resource/icons/keep.svg");
+}
+.task-icon,
+.add-task-icon,
+.search-icon,
+.today-icon,
+.upcoming-icon,
+.complete-icon{
+    width:2rem;
+    height:auto;
+    background-size:100% 100%; 
+    background-position:center;
+    background-repeat: no-repeat;
+    filter: invert(100%);
+}
+header{
+    background-color: red;
+ 
+}
+.user-container{
+    background-color:yellow;
+}
+main{
+    
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows:1fr; 
+    background-color:green;
+}
+nav{
+    background-color:pink;
+}
+.project-list-container{
+    background-color:pink;
+    gap:1rem 1rem;
+}
+.project-list-container{
+    grid-template-columns: 1fr;
+    grid-template-rows:1fr
+}
+.todo-list-item{
+    background-color:blue;
+}
+.project-nav{
+    background-color:firebrick;
+    margin-bottom:10px;
+}
+.project-control{
+    align-items: flex-start;
+    height:auto;
+}
+.control-items >button{
+    background-color:transparent;
+    border:none;
+}
+.control-items,
+.project-nav,
+.user-container,
+.todo-list-item,
+.content{
+    padding:0 0 0.5rem 1.5rem;
+}
+.project-control,
+.project-nav,
+.user-container,
+.todo-list-item,
+.content{
+    padding-top:0.5rem;
+}
+header,
+main{
+    padding:1rem;
+}
+.content-wrapper{
+    margin:2rem;
+}
+.user-container > .profile-picture{
+    margin-left:1rem;
+}
+.user-container > .notification-button{
+    margin-left:14rem;
+}
+.project-item-container{
+    background-color:brown;
+    margin:1rem 5rem 0 5rem;
+    padding:1rem;
+}
