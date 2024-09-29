@@ -1,15 +1,35 @@
+:root{
+    --custom-color-body:#dbdbdb;
+    --custom-color-header:#c5d43e;
+    --custom-color-header-content:#b9c833;
+    --custom-color-main:#9cac09;
+    --custom-color-nav:#b9c833;
+    --custom-color-nav-highlight:#c5d43e;
+    --custom-color-nav-focusing:#9cac09;
+    --custom-color-main-content:#c5d43e;
+    --custom-color-project-container:#b9c833;
+    --custom-color-todolist-content:#b9c833;
+    --current-width:0;
+    --custom-pin-position:calc()
+}
 body{
-    background-color:black;
+    background-image:url("../resource/background-images/wood-board-background.jpg");
+    font-size:18x;
+}
+#image-attribution{
+    background-color:rgba(255,255,255,1);
 }
 header,
-.user-container,
 nav,
 .todo-list-item,
 .task-control,
 .project-nav,
 .project-control,
 .control-items,
-.task-icon-container{
+.task-icon-container,
+.main-content,
+main,
+.project-item-container{
     display:flex;
 }
 
@@ -18,15 +38,18 @@ nav,
 .project-nav,
 .project-control,
 .todo-list-item,
-.project-item-container{
+.project-item-container,
+.main-content{
     flex-direction:column;
 }
-main,
 .todo-list,
-.project-list-container{
+.project-list-container,
+.user-container{
     display:grid;
 }
-
+.red-pin{
+    background-image: url("../resource/icons/red-pin.svg");
+}
 .add-task-icon{
     background-image: url("../resource/icons/add-task.svg");
 }
@@ -52,7 +75,8 @@ main,
 .search-icon,
 .today-icon,
 .upcoming-icon,
-.complete-icon{
+.complete-icon,
+.red-pin{
     width:2rem;
     height:auto;
     background-size:100% 100%; 
@@ -60,74 +84,126 @@ main,
     background-repeat: no-repeat;
     filter: invert(100%);
 }
+.red-pin{
+    align-self:center;
+    width:5rem; 
+    height:5rem;
+    filter:hue-rotate(0deg);
+
+}
 header{
-    background-color: red;
- 
+    background-color: var(--custom-color-header);
+    padding:0 2rem 2rem 2rem;
+    margin-bottom:0.5rem;
 }
+
 .user-container{
-    background-color:yellow;
-}
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color:var(--custom-color-header-content);
+    justify-content: flex-start;
+    padding:0.5rem;
+
+} 
 main{
-    
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows:1fr; 
-    background-color:green;
+    flex-wrap: wrap;
 }
 nav{
-    background-color:pink;
-}
-.project-list-container{
-    background-color:pink;
+    flex-grow:1;
+    flex-basis:1;
+    background-color:var(--custom-color-nav);
+    padding:0 0.5rem 0 0.5rem;
     gap:1rem 1rem;
 }
 .project-list-container{
-    grid-template-columns: 1fr;
-    grid-template-rows:1fr
-}
-.todo-list-item{
-    background-color:blue;
-}
-.project-nav{
-    background-color:firebrick;
-    margin-bottom:10px;
-}
-.project-control{
-    align-items: flex-start;
-    height:auto;
-}
-.control-items >button{
-    background-color:transparent;
-    border:none;
-}
-.control-items,
-.project-nav,
-.user-container,
-.todo-list-item,
-.content{
-    padding:0 0 0.5rem 1.5rem;
-}
-.project-control,
-.project-nav,
-.user-container,
-.todo-list-item,
-.content{
-    padding-top:0.5rem;
-}
-header,
-main{
-    padding:1rem;
-}
-.content-wrapper{
-    margin:2rem;
-}
-.user-container > .profile-picture{
-    margin-left:1rem;
-}
-.user-container > .notification-button{
-    margin-left:14rem;
+    grid-template-columns: repeat(autofit,1fr);
+    gap:1rem 1rem;
 }
 .project-item-container{
-    background-color:brown;
-    margin:1rem 5rem 0 5rem;
+    padding:0.5rem;
+}
+.todo-list-item{
+    background-color:var(--custom-color-todolist-content)
+}
+.project-nav{
+    margin-bottom:10px;
+}
+.project-nav >*:hover,
+.control-items:hover,
+.user-container > button:hover{
+    background-color:var(--custom-color-nav-highlight);
+}
+.project-nav >*:active,
+.control-items:active,
+.user-container > button:active{
+    background-color:var(--custom-color-nav-focusing);
+}
+
+.control-items >button,
+.user-container>button{
+    background-color:transparent;
+    border:none;
+    padding:0.8rem 0 0.8rem 0;
+}
+.control-items,
+.project-nav>div,
+.todo-list-item{
+    gap:1rem 1rem;
+}
+.project-control,
+.project-item-container,
+.project-nav,
+.todo-list-item,
+.main-content{
+    padding:1rem 2rem 1rem 2rem;
+}
+.content-wrapper{
+    background-color:var(--custom-color-main);
+    margin:2rem;
     padding:1rem;
+}
+.project-item-container{
+    background-color:var(--custom-color-project-container);
+}
+.main-content{
+    background-color:var(--custom-color-main-content);
+    flex:3;
+}
+.main-content > h2,
+header > h1 {
+    text-align: center;
+}
+nav{
+    
+}
+@media (width<=700px){
+    main,nav,.project-control,.user-container{
+        flex-direction: row;
+        font-size:14px;
+        flex-wrap: wrap;
+        gap:0.5rem 0.5rem;
+    }
+    .task-icon,
+    .add-task-icon,
+    .search-icon,
+    .today-icon,
+    .upcoming-icon,
+    .complete-icon{
+        width:1rem;
+        height:auto;
+        background-size:75% 75%; 
+        background-position:center;
+        background-repeat: no-repeat;
+        filter: invert(100%);
+    }
+    .control-items,
+    .project-nav>div,
+    .todo-list-item{
+        gap:0.5rem 0.5rem;
+    }
+    .project-control,
+    .project-nav,
+    .todo-list-item,
+    .main-content{
+        padding:0 1.5rem 0.5rem 1.5rem;
+    }
 }
