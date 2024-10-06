@@ -172,9 +172,6 @@ nav{
 header > h1 {
     text-align: center;
 }
-nav{
-    
-}
 @media (width<=700px){
     main,nav,.project-control,.user-container{
         flex-direction: row;
