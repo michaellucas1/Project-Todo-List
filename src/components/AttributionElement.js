@@ -3,14 +3,15 @@ export default class AttributionElement extends Element {
     constructor(){
         super();
         this.#createElements();
+        this.#setAttributes();
+        this.#setText();
         this.#appendElement();
     }
     #createElements(){
        this.parentSpan =super.create('span');
        this.childA = super.create('a');
        this.childSpan = super.create('span');
-       this.#setAttributes();
-       this.#setText();
+       
     }
     #setAttributes(){
         super.setAttribute(this.parentSpan,'id',"image-attribution");
