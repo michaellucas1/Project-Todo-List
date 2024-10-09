@@ -4,25 +4,27 @@ export default class Content extends Element{
         super();
         this.#createElements();
         this.#setClasses();
-        this.#appendElement();
         this.#setText();
+        this.#appendElement();
 
     }
     #createElements(){
-        this.parentDiv =super.create('div');
-        this.childH2 = super.create('h2');
-        this.childDivOne = super.create('div');
+        this.parentDiv =this.create('div');
+        this.childH2 = this.create('h2');
+        this.childDiv = this.create('div');
     }
     #setClasses(){
-        super.setClass(this.parentDiv,'main-content');
-        super.setClass(this.childDivOne,'project-item-container');
+        this.setClass(this.parentDiv,'main-content');
+        this.setClass(this.childDiv,'project-item-container');
     }
     #appendElement(){
-        super.connect(this.childH2,this.parentDiv);
-        super.connect(this.childDivOne,this.parentDiv);
+        this.connect(this.childH2,this.parentDiv);
+        this.connect(this.childDiv,this.parentDiv);
     }
     #setText(){
-        super.setTextContent(this.childH2,"Today");
+        this.setTextContent(this.childH2,"Today");
+        this.setTextContent(this.parentDiv,"HelloTwo");
+        this.setTextContent(this.childDiv,"Yesterdayasd24wegvc 4y6trgbf vy64trg");
     }
     getElement(){
         return this.parentDiv;
