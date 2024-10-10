@@ -27,6 +27,12 @@ export default class EntryForm {
                                     <option value="Low-Priority">Low Priority</option>
                                 </select>
                             </div>
+                            <div class="form-control">
+                                <label for="locale">Project</label>
+                                <select name="locale" id="locale">
+                                    <option value="default">Default</option>
+                                </select>
+                            </div>
                         </div>
                         <button class="submit-button" type=submit>Submit</button>
                     </form>

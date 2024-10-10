@@ -1,4 +1,4 @@
-import Connection from "./Connection.js";
+import Connection from "./Display.js";
 export default class Element extends Connection{
     constructor(){
         super();

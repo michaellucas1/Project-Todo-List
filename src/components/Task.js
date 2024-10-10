@@ -29,4 +29,11 @@ export default class Tasks extends Element{
     getElement(){
         return this.#parentDiv;
     }
+    setID(id){
+        this.#parentDiv.setAttribute('id',id);
+    }
+    getID(){
+        return this.#parentDiv.id;
+    }
+    
 }
