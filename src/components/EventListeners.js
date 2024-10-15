@@ -2,59 +2,59 @@ import TaskManager from "./TaskManager.js";
 import ProjectManager from "./ProjectManager.js";
 export default class EventListeners{
     constructor(){
-        this.#newTask();
-        this.#newProject();
+        this.#initialize();
+        this.#defaultProject();
     }
-    #dialogCloseButton(dialog,button){
-        button.addEventListener("click",close);
-        function close(){
-            dialog.close();
-        }
+    #initialize(){
+        this.projectForm = document.querySelector('.project-form');
+        this.taskForm = document.querySelector('.task-form');
+        this.projectDialog = document.querySelector('.project-dialog');
+        this.taskDialog = document.querySelector('.task-dialog');
+        this.closeProjectModal=document.querySelector('.close-project-modal');
+        this.openProjectModal=document.querySelector('.add-project-button');
+        this.closeTaskModal=document.querySelector('.close-task-modal');
+        this.openTaskModal=document.querySelector('.add-task-button');
+        this.projectManager = new ProjectManager();
+        this.taskManager = new TaskManager();
+        this.closeProjectModal.addEventListener("click",this.#projectCloseButton.bind(this));
+        this.openProjectModal.addEventListener("click",this.#projectOpenButton.bind(this));
+        this.closeTaskModal.addEventListener("click",this.#taskCloseButton.bind(this));
+        this.openTaskModal.addEventListener("click",this.#taskOpenButton.bind(this));
+        this.projectForm.addEventListener("submit",this.#newProject.bind(this));
+        this.taskForm.addEventListener("submit",this.#newTask.bind(this));
     }
-    #dialogOpenButton(dialog,button){
-        button.addEventListener("click",open);
-        function open(){
-            dialog.showModal();
-        }
+    #defaultProject(){
+
     }
-    #newProject(){
-        const form = document.querySelector('.project-form');
-        const dialog = document.querySelector('.project-dialog');
-        const closeModal=document.querySelector('.close-project-modal');
-        const openModal=document.querySelector('.add-project-button');
-        const projectManager = new ProjectManager();
-        this.#dialogCloseButton(dialog,closeModal);
-        this.#dialogOpenButton(dialog,openModal);
-        form.addEventListener("submit",submit);
-        function submit(event){
-            event.preventDefault();
-            const myFormData = new FormData(event.target);
-            const formDataObject = {};
-            myFormData.forEach((value,key)=>(formDataObject[key]=value));
-            projectManager.addProject(formDataObject);
-            form.reset();
-            dialog.close();
-        }
+    #projectCloseButton(){
+        this.projectDialog.close();
     }
-    #newTask(){
-        const form= document.querySelector('.task-form'); 
-        const dialog = document.querySelector('.task-dialog');
-        const closeModal=document.querySelector('.close-task-modal');
-        const openModal=document.querySelector('.add-task-button');
-        const taskManager = new TaskManager();
-        this.#dialogCloseButton(dialog,closeModal);
-        this.#dialogOpenButton(dialog,openModal);
-        form.addEventListener("submit",submit);        
-        function submit(event){
-            event.preventDefault();
-            const myFormData = new FormData(event.target);
-            const formDataObject = {};
-            myFormData.forEach((value,key)=>(formDataObject[key]=value));
-            taskManager.addTask(formDataObject);
-            console.log(formDataObject);
-            form.reset();
-            dialog.close();
-        } 
+    #projectOpenButton(){
+        this.projectDialog.showModal();
+    }
+    #taskCloseButton(){
+        this.taskDialog.close();
+    }
+    #taskOpenButton(){
+        this.taskDialog.showModal();
+    }
+    #newProject(event){
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        const formDataObject = {};
+        myFormData.forEach((value,key)=>(formDataObject[key]=value));
+        this.projectManager.addProject(formDataObject);
+        this.projectForm.reset();
+        this.projectDialog.close();
+    }
+    #newTask(event){
+        event.preventDefault();
+        const myFormData = new FormData(event.target);
+        const formDataObject = {};
+        myFormData.forEach((value,key)=>(formDataObject[key]=value));
+        this.taskManager.addTask(formDataObject);
+        this.taskForm.reset();
+        this.taskDialog.close();
     }
     
 }
