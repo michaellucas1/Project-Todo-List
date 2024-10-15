@@ -23,8 +23,6 @@ export default class Content extends Element{
     }
     #setText(){
         this.setTextContent(this.childH2,"Today");
-        this.setTextContent(this.parentDiv,"HelloTwo");
-        this.setTextContent(this.childDiv,"Yesterdayasd24wegvc 4y6trgbf vy64trg");
     }
     getElement(){
         return this.parentDiv;
