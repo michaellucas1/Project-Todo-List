@@ -5,6 +5,7 @@ export default class Project extends Element{
         super();
         this.#createElements();
         this.#setText(newProject);
+        this.#setAttributes(newProject);
         this.#setClasses();
         this.#appendElements();
     }
@@ -17,6 +18,9 @@ export default class Project extends Element{
     #setText(newProject){
         this.title.textContent=`${newProject.project}`;
         this.option.textContent=`${newProject.project}`
+    }
+    #setAttributes(newProject){
+        this.#parentDiv.setAttribute(`id`,newProject.ID);
     }
     #setClasses(){
         this.setClass(this.tasks,'task-container');
