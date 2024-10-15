@@ -27,5 +27,4 @@ export default class EntryForm {
     getElement(){
         return this.div;
     }
-
 } 
