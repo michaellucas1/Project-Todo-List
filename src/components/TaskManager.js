@@ -7,13 +7,13 @@ export default class TaskManager{
     }
     addTask(newTask){
         const task = new Task(newTask);
-        task.setID(this.idGenerator.generateID());
-        array.push(task.getElement());
-        array.forEach((element)=>{console.log(element)});
+        this.setID(newTask);
+        console.log(newTask);
     }
-    #createTaskObject(newTask,taskElement){
-        const taskObject = {
-            taskID:''
+    setID(newTask){
+        if(newTask.hasOwnProperty('ID')===false){
+            newTask['ID']=this.idGenerator.generateID();
         }
     }
+
 }
