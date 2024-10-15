@@ -9,7 +9,6 @@ export default class Nav extends Element {
     }
     #createElements(){
         this.parentNav =this.create('nav');
-        this.projectNav = this.create('div');
 
         this.childDivOne = this.create('div');
 
@@ -35,7 +34,6 @@ export default class Nav extends Element {
     }
     #setClasses(){
         this.setClass(this.childDivOne,'project-control');
-        this.setClass(this.projectNav,'project-nav');
 
         this.setClass(this.childDivTwo,'control-items'); 
         this.setClass(this.childDivThree,'icon');
@@ -65,7 +63,6 @@ export default class Nav extends Element {
         this.setTextContent(this.childButtonThree,"Today");
         this.setTextContent(this.childButtonFour,"Upcoming");
         this.setTextContent(this.childButtonFive,"Completed");
-        this.setTextContent(this.projectNav,'Hello');
     }
     #appendElement(){
         this.connect(this.childDivThree,this.childDivTwo);
@@ -89,7 +86,6 @@ export default class Nav extends Element {
         this.connect(this.childDivTen,this.childDivOne); 
         
         this.connect(this.childDivOne,this.parentNav); 
-        this.connect(this.projectNav,this.parentNav);
     }
     getElement(){
         return this.parentNav;
